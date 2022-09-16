@@ -10,7 +10,7 @@
   <body class="bg-gray-200">
     <div class="flex">
       <!-- Side navbar -->
-      <div class="bg-indigo-900 w-64 h-screen">
+      <div class="bg-indigo-900 w-64">
         <div class="bg-indigo-800">
           <!-- logo -->
           <div class="uppercase text-white text-xl font-bold p-5 h-16">
@@ -222,6 +222,30 @@
           </div>
           <!-- end container -->
         </div>
+        <!-- container -->
+        <div class="card-container flex m-7 space-x-6">
+          <div class="bg-white w-1/3 p-4 divide-y divide-gray-200">
+            <div class="font-bold text-xl pb-4">Top Countries</div>
+            <canvas class="pt-4" id="chart5"></canvas>
+          </div>
+          <div class="bg-white w-2/3 p-4">
+            <div class="font-bold text-xl pb-4">Top Channels</div>
+            <div
+              class="flex bg-gray-100 text-gray-500 p-2 uppercase font-bold text-xs"
+            >
+              <div class="w-1/3">
+                <div>Source</div>
+              </div>
+              <div class="w-3/4 flex space-x-16">
+                <div>Visitors</div>
+                <div>Revenues</div>
+                <div>Sales</div>
+                <div>Conversion</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end container -->
       </div>
       <!-- End main area -->
     </div>
@@ -231,6 +255,7 @@
       const ctx2 = document.getElementById('chart2').getContext('2d');
       const ctx3 = document.getElementById('chart3').getContext('2d');
       const ctx4 = document.getElementById('chart4').getContext('2d');
+      const ctx5 = document.getElementById('chart5').getContext('2d');
       const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -303,11 +328,7 @@
           ],
         },
         options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
+          scales: {},
         },
       });
 
@@ -356,6 +377,43 @@
             {
               label: 'Number of sales',
               data: [11, 22, 13, 74, 105, 6],
+              backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const myChart5 = new Chart(ctx5, {
+        type: 'doughnut',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+          datasets: [
+            {
+              label: 'Number of sales',
+              data: [1, 2, 3, 4, 5, 6],
               backgroundColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
