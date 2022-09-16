@@ -152,6 +152,9 @@
                   class="bg-green-500 text-white p-1 rounded-full text-sm font-bold align-text-top"
                   >+58%</span
                 >
+                <div>
+                  <canvas id="chart1"></canvas>
+                </div>
               </div>
             </div>
             <div class="card w-1/2 bg-white p-4">
@@ -168,6 +171,52 @@
                   class="bg-red-500 text-white p-1 rounded-full text-sm font-bold align-text-top"
                   >-9%</span
                 >
+                <div>
+                  <canvas id="chart2"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end container -->
+
+          <!-- container -->
+          <div class="card-container flex m-7 space-x-6">
+            <div class="card w-1/2 bg-white p-4">
+              <div>
+                <img src="images/wallet.png" class="w-10 h-10" alt="wallet" />
+                <div class="font-bold text-xl text-gray-700">Super plus</div>
+                <div
+                  class="uppercase mt-3 mb-3 font-bold text-sm text-gray-400"
+                >
+                  Sales
+                </div>
+                <span class="font-bold text-3xl">$25,647</span>
+                <span
+                  class="bg-green-500 text-white p-1 rounded-full text-sm font-bold align-text-top"
+                  >+58%</span
+                >
+                <div>
+                  <canvas id="chart3"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card w-1/2 bg-white p-4">
+              <div>
+                <img src="images/wallet.png" class="w-10 h-10" alt="wallet" />
+                <div class="font-bold text-xl text-gray-700">Super pro</div>
+                <div
+                  class="uppercase mt-3 mb-3 font-bold text-sm text-gray-400"
+                >
+                  Sales
+                </div>
+                <span class="font-bold text-3xl">$25,647</span>
+                <span
+                  class="bg-red-500 text-white p-1 rounded-full text-sm font-bold align-text-top"
+                  >-9%</span
+                >
+                <div>
+                  <canvas id="chart4"></canvas>
+                </div>
               </div>
             </div>
           </div>
@@ -176,5 +225,165 @@
       </div>
       <!-- End main area -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById('chart1').getContext('2d');
+      const ctx2 = document.getElementById('chart2').getContext('2d');
+      const ctx3 = document.getElementById('chart3').getContext('2d');
+      const ctx4 = document.getElementById('chart4').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+          datasets: [
+            {
+              label: 'Number of sales',
+              data: [1, 2, 3, 4, 5, 6],
+              backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                // 'rgba(255, 99, 132, 0.2)',
+                // 'rgba(54, 162, 235, 0.2)',
+                // 'rgba(255, 206, 86, 0.2)',
+                // 'rgba(75, 192, 192, 0.2)',
+                // 'rgba(153, 102, 255, 0.2)',
+                // 'rgba(255, 159, 64, 0.2)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+          datasets: [
+            {
+              label: 'Number of sales',
+              data: [11, 22, 13, 74, 105, 6],
+              backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const myChart3 = new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+          datasets: [
+            {
+              label: 'Number of sales',
+              data: [11, 22, 13, 74, 105, 6],
+              backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const myChart4 = new Chart(ctx4, {
+        type: 'radar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+          datasets: [
+            {
+              label: 'Number of sales',
+              data: [11, 22, 13, 74, 105, 6],
+              backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>
